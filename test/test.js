@@ -28,21 +28,21 @@ test('proper configuration', t => {
 // 	}
 // });
 
-test('get flight tracks arrivals by airport', async t => {
-	const source = new FlightStatsSource();
-	try {
-		const departures = await source.getFlightTracksArrivalsByAirport(config);
-	} catch(err) {
-		t.comment(err);
-	}
-});
-
-// test('get flight tracks departures by airport', async t => {
+// test('get flight tracks arrivals by airport', async t => {
 // 	const source = new FlightStatsSource();
 // 	try {
-// 		const departures = await source.getFlightStatusArrivalsByAirport(config);
+// 		const departures = await source.getFlightTracksArrivalsByAirport(config);
 // 	} catch(err) {
 // 		t.comment(err);
 // 	}
 // });
+
+test('get flight tracks departures by airport', async t => {
+	const source = new FlightStatsSource();
+	try {
+		const departures = await source.getFlightStatusArrivalsByAirport(config);
+	} catch(err) {
+		t.comment(err);
+	}
+});
 
