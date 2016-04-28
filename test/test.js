@@ -10,23 +10,23 @@ test('proper configuration', t => {
 	t.end();
 });
 
-test('test date', async t => {
-	const source = new FlightStatsSource();
-	try {
-		await source.getFlightStatusArrivalsByAirport(config);
-	}catch(err) {
-		t.comment(err);
-	}
-})
+// test('test date', async t => {
+// 	const source = new FlightStatsSource();
+// 	try {
+// 		await source.getFlightStatusArrivalsByAirport(config);
+// 	}catch(err) {
+// 		t.comment(err);
+// 	}
+// })
 
-test('get flight tracks departures by airport', async t => {
-	const source = new FlightStatsSource();
-	try {
-		const departures = await source.getFlightTracksDeparturesByAirport(config);
-	} catch(err) {
-		t.comment(err);
-	}
-});
+// test('get flight tracks departures by airport', async t => {
+// 	const source = new FlightStatsSource();
+// 	try {
+// 		const departures = await source.getFlightTracksDeparturesByAirport(config);
+// 	} catch(err) {
+// 		t.comment(err);
+// 	}
+// });
 
 test('get flight tracks arrivals by airport', async t => {
 	const source = new FlightStatsSource();
@@ -37,12 +37,12 @@ test('get flight tracks arrivals by airport', async t => {
 	}
 });
 
-test('get flight tracks departures by airport', async t => {
-	const source = new FlightStatsSource();
-	try {
-		const departures = await source.getFlightStatusArrivalsByAirport(config);
-	} catch(err) {
-		t.comment(err);
-	}
-});
+// test('get flight tracks departures by airport', async t => {
+// 	const source = new FlightStatsSource();
+// 	try {
+// 		const departures = await source.getFlightStatusArrivalsByAirport(config);
+// 	} catch(err) {
+// 		t.comment(err);
+// 	}
+// });
 
