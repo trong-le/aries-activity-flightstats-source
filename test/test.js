@@ -1,11 +1,6 @@
 import test from 'blue-tape';
 import FlightStatsSource from '../lib/index.js';
-
-const config = {
-	appId: '',
-	appKey: '',
-	day: ''
-};
+import config from './config/config';
 
 // example - make sure configuration is the same
 test('proper configuration', t => {
@@ -15,12 +10,39 @@ test('proper configuration', t => {
 	t.end();
 });
 
-// Test with CVG data 
-test('test get flight status', async t => {
+test('test date', async t => {
 	const source = new FlightStatsSource();
 	try {
-		await source.getFlightStatus(config)
+		await source.getFlightStatusArrivalsByAirport(config);
+	}catch(err) {
+		t.comment(err);
+	}
+})
+
+test('get flight tracks departures by airport', async t => {
+	const source = new FlightStatsSource();
+	try {
+		const departures = await source.getFlightTracksDeparturesByAirport(config);
 	} catch(err) {
 		t.comment(err);
 	}
 });
+
+test('get flight tracks arrivals by airport', async t => {
+	const source = new FlightStatsSource();
+	try {
+		const departures = await source.getFlightTracksArrivalsByAirport(config);
+	} catch(err) {
+		t.comment(err);
+	}
+});
+
+test('get flight tracks departures by airport', async t => {
+	const source = new FlightStatsSource();
+	try {
+		const departures = await source.getFlightStatusArrivalsByAirport(config);
+	} catch(err) {
+		t.comment(err);
+	}
+});
+
