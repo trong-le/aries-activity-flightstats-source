@@ -40,7 +40,8 @@ test('proper configuration', t => {
 test('get flight tracks departures by airport', async t => {
 	const source = new FlightStatsSource();
 	try {
-		const departures = await source.getFlightStatusArrivalsByAirport(config);
+		const departures = await source.fidsDeparture(config);
+		t.comment('test departures');
 	} catch(err) {
 		t.comment(err);
 	}
