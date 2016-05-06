@@ -1,6 +1,7 @@
 import test from 'blue-tape';
 import FlightStatsSource from '../lib/index.js';
-import config from './test.config'
+import config from './test.config';
+import response from './test.response';
 
 // example - make sure configuration is the same
 test('proper configuration', t => {
@@ -42,6 +43,16 @@ test('get taxi data', async t => {
 	try {
 		const taxi = await source.getTaxiData(config);
 		t.comment(JSON.stringify(taxi));
+	} catch(err) {
+		t.comment(err);
+	}
+});
+
+test('get unique taxi data', async t => {
+	const source = new FlightStatsSource();
+	try {
+		const uniqueTaxi = await source.getUniqueTaxiData(response);
+		t.comment(JSON.stringify(uniqueTaxi));
 	} catch(err) {
 		t.comment(err);
 	}
