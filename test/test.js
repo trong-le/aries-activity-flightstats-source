@@ -1,32 +1,6 @@
 import test from 'blue-tape';
 import FlightStatsSource from '../lib/index.js';
-
-const config = {
-	schema : "abq",
-	table : "arrivals",
-	drop : true,
-	airport: 'ABQ',
-	requestedFields : [
-		'scheduledTime',
-		'scheduledDate',
-		'flight',
-		'actualTime',
-		'actualGateTime',
-		'statusCode',
-		'remarks',
-		'codesharesAsNames',
-		'airlineName',
-		'flightId'
-	],
-	timeWindowBegin : 720,
-	timeWindowEnd : 720,
-	lateMinutes : 15,
-	useRunwayTimes : false,
-	excludeCargoFlights : false,
-	utc : false,
-	appId : '123',
-	appKey : 'abc'
-};
+import config from './test.config'
 
 // example - make sure configuration is the same
 test('proper configuration', t => {
