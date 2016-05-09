@@ -11,70 +11,38 @@ test('proper configuration', t => {
 	t.end();
 });
 
-// test('test date', async t => {
-// 	const source = new FlightStatsSource();
-// 	try {
-// 		await source.getFlightStatusArrivalsByAirport(config);
-// 	}catch(err) {
-// 		t.comment(err);
-// 	}
-// })
+test('test arrivals flight status by airport', async t => {
+	const source = new FlightStatsSource();
+	const arrivals = await source.getFlightStatusArrivalsByAirport(config);
+})
 
-// test('get flight tracks departures by airport', async t => {
-// 	const source = new FlightStatsSource();
-// 	try {
-// 		const departures = await source.getFlightTracksDeparturesByAirport(config);
-// 	} catch(err) {
-// 		t.comment(err);
-// 	}
-// });
+test('get flight tracks departures by airport', async t => {
+	const source = new FlightStatsSource();
+	const departures = await source.getFlightTracksDeparturesByAirport(config);
+});
 
-// test('get flight tracks arrivals by airport', async t => {
-// 	const source = new FlightStatsSource();
-// 	try {
-// 		const departures = await source.getFlightTracksArrivalsByAirport(config);
-// 	} catch(err) {
-// 		t.comment(err);
-// 	}
-// });
+test('get flight tracks arrivals by airport', async t => {
+	const source = new FlightStatsSource();
+	const arrivalsTracks = await source.getFlightTracksArrivalsByAirport(config);
+});
 
 test('get taxi data', async t => {
 	const source = new FlightStatsSource();
-	try {
-		const taxi = await source.getTaxiData(config);
-		t.comment(JSON.stringify(taxi));
-	} catch(err) {
-		t.comment(err);
-	}
+	const taxi = await source.getTaxiData(config);
 });
 
 test('get unique taxi data', async t => {
 	const source = new FlightStatsSource();
-	try {
-		const uniqueTaxi = await source.getUniqueTaxiData(response);
-		t.comment(JSON.stringify(uniqueTaxi));
-	} catch(err) {
-		t.comment(err);
-	}
+	const uniqueTaxi = await source.getUniqueTaxiData(response);
 });
 
 test('get fids arrivals', async t => {
 	const source = new FlightStatsSource();
-	try {
-		const fidsArr = await source.fidsArrival(config);
-		t.comment(JSON.stringify(fidsArr));
-	} catch(err) {
-		t.comment(err);
-	}
+	const fidsArr = await source.fidsArrival(config);
 });
 
 test('get flight tracks departures by airport', async t => {
 	const source = new FlightStatsSource();
-	try {
-		const departures = await source.getActiveAirlines(config);
-		t.comment(JSON.stringify(departures));
-	} catch(err) {
-		t.comment(err);
-	}
+	const departures = await source.getActiveAirlines(config);
 });
 
