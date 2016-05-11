@@ -46,7 +46,7 @@ test('get unique taxi data', t => {
 
 test('get fids arrivals', async t => {
 	const source = new FlightStatsSource();
-	const fidsArr = source.fidsArrival(config);
+	const fidsArr = await source.fidsArrival(config);
 });
 
 test('get flight tracks departures by airport', async t => {
