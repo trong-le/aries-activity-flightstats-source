@@ -1,6 +1,8 @@
 import test from 'blue-tape';
 import FlightStatsSource from '../lib/index.js';
 import config from './test.config';
+import response from './test.response';
+import taxiData from './taxiData';
 
 // example - make sure configuration is the same
 test('proper configuration', t => {
@@ -30,9 +32,21 @@ test('get taxi data', async t => {
 	const taxi = await source.getTaxiData(config);
 });
 
+test('get unique taxi data', t => {
+	const source = new FlightStatsSource();
+	const uniqueTaxi = source.getUniqueTaxiData(response);
+
+	// uniqueTaxiData appends most current timestamp when ran.
+	for (let i = 0; i < uniqueTaxi.length; i++) {
+		delete uniqueTaxi[`${i}`].timestamp;
+	}
+	t.deepEqual(JSON.stringify(uniqueTaxi), JSON.stringify(taxiData));
+	t.end();
+});
+
 test('get fids arrivals', async t => {
 	const source = new FlightStatsSource();
-	const fidsArr = await source.fidsArrival(config);
+	const fidsArr = source.fidsArrival(config);
 });
 
 test('get flight tracks departures by airport', async t => {
