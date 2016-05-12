@@ -1,8 +1,6 @@
 import test from 'blue-tape';
 import FlightStatsSource from '../lib/index.js';
-import config from './test.config';
-import response from './test.response';
-import taxiData from './taxiData';
+import { config, response, taxiData } from './test.config';
 
 // example - make sure configuration is the same
 test('proper configuration', t => {
@@ -40,7 +38,7 @@ test('get unique taxi data', t => {
 	for (let i = 0; i < uniqueTaxi.length; i++) {
 		delete uniqueTaxi[`${i}`].timestamp;
 	}
-	t.deepEqual(JSON.stringify(uniqueTaxi), JSON.stringify(taxiData));
+	t.deepEqual(uniqueTaxi, taxiData);
 	t.end();
 });
 
