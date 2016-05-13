@@ -2,7 +2,6 @@ import test from 'blue-tape';
 import FlightStatsSource from '../lib/index.js';
 import { config, response, taxiData } from './test.config';
 
-// example - make sure configuration is the same
 test('proper configuration', t => {
 	const activity = new FlightStatsSource();
 	t.equal(FlightStatsSource.props.name, require('../package.json').name);
