@@ -1,15 +1,6 @@
 export const config = {
-	schema : 'abq',
-	table : 'arrivals',
-	drop : true,
-	method : 'fidsArrival',
-	airport: 'ABQ',
-	date: {
-		year: 2016,
-		month:  5,
-		day: 9,
-		hour: 10,
-	},
+	airport: 'CVG',
+  embark: 'dep',
 	requestedFields : [
 		'scheduledTime',
 		'scheduledDate',
